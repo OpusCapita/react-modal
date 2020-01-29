@@ -11,7 +11,7 @@ const stories = storiesOf('Modal', module);
 stories.add('Modal', () => (
   <Modal
     width={text('width', '50%')}
-    height={text('height', '50%')}
+    height={text('height', '80%')}
   >
     <Modal.Header>
       Header Text

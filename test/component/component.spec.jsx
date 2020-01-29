@@ -3,11 +3,11 @@ import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 
-import Example from '../../src/index';
+import Modal from '../../src/index';
 
-describe('Example component', () => {
+describe('Modal component', () => {
   it('is rendered', () => {
-    const wrapper = mount(<Example />);
+    const wrapper = mount(<Modal />);
     expect(wrapper).to.exist;
   });
 });
