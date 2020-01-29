@@ -18,6 +18,7 @@ stories.add('Modal', () => (
     </Modal.Header>
     <Modal.Body
       isBorderVisible={boolean('isBorderVisible', false)}
+      isPerfectScrollbar={boolean('isPerfectScrollbar', true)}
     >
       {faker.lorem.paragraphs(20)}
     </Modal.Body>

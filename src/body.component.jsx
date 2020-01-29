@@ -7,7 +7,7 @@ const BodyContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  overflow: hidden;
+  overflow: ${(props) => (props.isBorderVisible ? 'hidden' : 'auto')};
   min-height: 0%;
   width: 100%;
   border: ${(props) => (props.isBorderVisible ? '1px solid #c3cbd6' : 'none')};
@@ -19,6 +19,7 @@ export default class Body extends React.PureComponent {
     id: PropTypes.string,
     className: PropTypes.string,
     isBorderVisible: PropTypes.bool,
+    isPerfectScrollbar: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -26,6 +27,7 @@ export default class Body extends React.PureComponent {
     id: 'oc-modal-body',
     className: 'oc-modal-body',
     isBorderVisible: false,
+    isPerfectScrollbar: true,
   }
 
   render() {
@@ -34,16 +36,23 @@ export default class Body extends React.PureComponent {
       id,
       className,
       isBorderVisible,
+      isPerfectScrollbar,
     } = this.props;
     return (
       <BodyContainer
         id={id}
         className={className}
         isBorderVisible={isBorderVisible}
+        isPerfectScrollbar={isPerfectScrollbar}
       >
-        <PerfectScrollbar>
-          {children}
-        </PerfectScrollbar>
+        { isPerfectScrollbar
+          ? (
+            <PerfectScrollbar>
+              {children}
+            </PerfectScrollbar>
+          ) : (
+            children
+          )}
       </BodyContainer>
     );
   }
